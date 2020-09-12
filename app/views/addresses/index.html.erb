@@ -1,14 +1,16 @@
 <h1>Your Addresses are Here</h1>
+<div class="card" style="width: 18rem;">
 <% @addresses.each do |address| %>
   <h5>Street:<%=address.street%></h5>
   <h5>State:<%=address.state%></h5>
   <h5>City:<%=address.city%></h5>
   <h5>Country:<%=address.country%></h5>
  <br>
-  <%= link_to "Edit", edit_location_address_path(@location, address), class:"btn btn-outline-warning" %>
+  <%= button_to "Edit", edit_location_address_path(@location, address), class:"btn btn-outline-warning" %>
   <%= button_to "Delete", location_address_path(@location, address), method: :delete, class:"btn btn-outline-danger" %>
   <hr>
 <% end %>
+</div>
 <br>
 <div class="create">
 <%= link_to "Create New Address", new_location_address_path, class:"btn btn-success" %>
