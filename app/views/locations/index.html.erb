@@ -1,15 +1,18 @@
 <h1>Your Trips for  <%= @trip.name %></h1>
 <% @locations.each do |location| %>
-  <h3><%= link_to location.name,location_addresses_path(location)%></h3>
+<div class="card" style="width: 18rem;">
+  <h3><%= location.name%></h3>
   <br>
   <br>
-  <%= link_to "View",location_addresses_path(location) %>
-  <%= link_to "Edit", edit_location_path(location) %>
-  <%= link_to "Delete", [@trip, location], method: :delete%>
+  <%= link_to "View",location_addresses_path(location), class:"btn btn-outline-primary"%>
+  <%= link_to "Edit", edit_location_path(location), class:"btn btn-outline-warning"%>
+  <%= link_to "Delete", [@trip, location], method: :delete,class:"btn btn-outline-danger"%>
   <hr>
+  </div>
 <% end %>
 <br />
 <div class="create">
 <%= link_to "Create New Location", new_trip_location_path, class:"btn btn-success"%>
 </div>
-<%= link_to "Back", root_path %>
+<%= link_to "Back", root_path, class:"btn btn-success"  %>
+<%= button_to "Log Out", destroy_user_session_path, method: :delete, class:"btn btn-danger btn-lg btn-block"%>

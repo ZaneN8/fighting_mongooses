@@ -8,27 +8,35 @@
 
 require "faker"
 
-  User.create(email: "test@test.com", password: "test1234")
+  # user1 = User.create(email: "test@test.com", password: "test1234")
+  @user = User.create(email: "test@test.com", password: "test1234")
 
   3.times do
-    trip = Trip.create(
-      name: Faker::Movies::LordOfTheRings.location
-    )
-    3.times do
-      location = Location.create(
-        name: Faker::Movies::LordOfTheRings.location,
-        trip_id: trip.id
+    @trip = Trip.create(
+      name: Faker::Movies::LordOfTheRings.location,
+      user_id: @user.id
       )
+      
       3.times do
-        Address.create(
-          street: Faker::Address.street_name,
-          state: Faker::Address.state,
-          city: Faker::Address.city,
-          country: Faker::Address.country,
-          region: Faker::Address.time_zone,
-          zip: Faker::Address.zip,
-          location_id: location.id
-        )
+        @location = Location.create(
+          name: Faker::Movies::LordOfTheRings.location,
+          trip_id: @trip.id
+          )
+
+          3.times do
+      Address.create(
+                  street: Faker::Address.street_name,
+                  state: Faker::Address.state,
+                  city: Faker::Address.city,
+                  country: Faker::Address.country,
+                  region: Faker::Address.time_zone,
+                  zip: Faker::Address.zip,
+                  location_id: @location.id
+  )
+
         end
       end
     end
+
+
+

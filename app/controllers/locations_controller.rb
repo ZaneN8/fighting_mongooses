@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
 
 
   def edit
-    render partial: "locations/form"
+    # render partial: "locations/form"
   end
 
   def update
