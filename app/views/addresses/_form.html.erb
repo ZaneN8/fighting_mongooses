@@ -1,7 +1,8 @@
 <h1><%= @address.id ? 'Edit Address' : 'Create New Address' %></h1>
 
 
-<%= form_with(model:[@location, @address], local: true, class: "form") do |f| %>
+<%= form_with(model:[@location,@address], local: true, class: "form") do |f| %>
+
 
     <%= f.label :street %>
     <%= f.text_field :street, required: true, placeholder: "Street name" %>
@@ -12,8 +13,9 @@
     <%= f.label :country %>
     <%= f.text_field :country, required: true, placeholder: "Country name" %>
     <%= f.label :region %>
-    <%= f.text_field :region, required: true, placeholder: "Country name" %>
+    <%= f.text_field :region, required: true, placeholder: "Region name" %>
     <%= f.label :zip %>
-    <%= f.number_field :zip, required: true, placeholder: "Country name" %>
+    <%= f.number_field :zip, required: true, placeholder: "Zip Code" %>
     <%= f.submit nil, class: "btn btn-primary" %>
 <% end %>
+

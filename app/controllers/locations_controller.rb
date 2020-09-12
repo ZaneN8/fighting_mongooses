@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :set_trip , only: [:index, :show, :destroy]
+  before_action :set_trip , only: [:index, :show, :new, :create, :destroy]
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   

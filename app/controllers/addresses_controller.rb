@@ -12,32 +12,34 @@ class AddressesController < ApplicationController
 
   def new
     @address = @location.addresses.new
+    render :_form
   end
 
   def create
     @address = @location.addresses.new(address_params)
     if @address.save
-      redirect_to [@location]
+      redirect_to location_addresses_path(@location)
     else
       render :new
     end
   end
 
   def edit
-
+    render :_form
   end
 
   def update
     if @address.update(address_params)
-      redirect_to [@location]
+      redirect_to location_addresses_path(@location)
     else
-      render :edit
+      render :_form
     end
   end
 
   def destroy
+    # binding.pry
     @address.destroy
-    redirect_to [@location] 
+    redirect_to location_addresses_path(@location)
   end
 
   private
