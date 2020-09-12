@@ -14,5 +14,7 @@
  *= require_self
  */
 h1 {
+  display: flex;
   text-align: center;
+  font-family: "Lobster", cursive;
 }
