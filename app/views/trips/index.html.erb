@@ -1,2 +1,15 @@
-<h1>Trips#index</h1>
-<p>Find me in app/views/trips/index.html.erb</p>
+<h1>Welcome to Trippo</h1>
+<% @trips.each do|trip| %>
+<h3><%=link_to trip.name,trip_locations_path(trip)%>
+<br>
+<%=link_to "View", trip_locations_path(trip), class:"btn btn-outline-primary"%>
+<%= link_to "Edit", edit_trip_path(trip), class:"btn btn-outline-warning"%>
+<%= link_to "Delete", trip_path(trip), method: :delete, class:"btn btn-outline-danger" %>
+  <hr>
+<% end %>
+<br />
+
+<div class="create">
+<%= link_to "Create New Trip", new_trip_path, class:"btn btn-success" %>
+<%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+</div>
