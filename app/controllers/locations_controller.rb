@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :set_trip
+  before_action :set_trip , only: [:index, :show, :destroy]
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   
@@ -25,15 +25,14 @@ class LocationsController < ApplicationController
 
 
   def edit
-
+    render partial: "locations/form"
   end
 
   def update
-
     if @location.update(location_params)
-      redirect_to [@trip, @location]
+      redirect_to trip_locations_path @location.trip
     else
-    render :edit
+      render :edit
     end
   end
 

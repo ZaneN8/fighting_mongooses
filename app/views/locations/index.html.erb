@@ -1,9 +1,9 @@
 <h1>Your Trips for  <%= @trip.name %></h1>
 <% @locations.each do |location| %>
-  <h3><%= link_to location.name%></h3>
+  <h3><%= link_to location.name,location_addresses_path(location)%></h3>
   <br>
   <br>
-  <%= link_to "View", location_path(location) %>
+  <%= link_to "View",location_addresses_path(location) %>
   <%= link_to "Edit", edit_location_path(location) %>
   <%= link_to "Delete", [@trip, location], method: :delete%>
   <hr>

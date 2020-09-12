@@ -1,6 +1,6 @@
 <h1>Welcome to Trippo</h1>
 <% @trips.each do|trip| %>
-<h3><%=link_to trip.name,trip_locations_path(trip)%>
+<h3><%=trip.name%>
 <br>
 <%=link_to "View", trip_locations_path(trip), class:"btn btn-outline-primary"%>
 <%= link_to "Edit", edit_trip_path(trip), class:"btn btn-outline-warning"%>

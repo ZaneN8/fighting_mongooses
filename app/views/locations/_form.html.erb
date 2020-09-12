@@ -1,7 +1,7 @@
 <h1><%= @location.id ? 'Edit Location' : 'Create Location' %></h1>
 
 
-<%= form_with(model:[@location], local: true, class: "form") do |f| %>
+<%= form_with(model:[@trip,@location], local: true, class: "form") do |f| %>
 
     <%= f.label :name %>
     <%= f.text_field :name, required: true, placeholder: "Location Name" %>
